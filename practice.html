@@ -42,7 +42,7 @@
     </script>
     -->
 
-    <!-- Creating Components-->
+    <!-- Creating Components
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/jsx">
       const app = document.getElementById('app')
@@ -55,6 +55,30 @@
       const root = ReactDOM.createRoot(app);
       root.render(<Header />);
     </script>
+  -->
+
+  <!-- Nesting Components 
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/jsx">
+    const app =document.getElementById('app');
+
+    function Header(){
+      return <h1>Hello World</h1>;
+    }
+
+    function HomePage(){
+      return(
+        <div>
+          <Header />
+          <p>Welcome to the world of React</p>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(app);
+    root.render(<HomePage />);
+    </script>
+  -->
 
   
   </body>
