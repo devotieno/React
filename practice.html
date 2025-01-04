@@ -27,8 +27,9 @@
  
       // Place the H1 element inside the div
       app.appendChild(header);
-    <!--
--->
+      </script>
+    
+    -->
 
 
     <!-- Babel .Declarative JavaScript
@@ -39,6 +40,9 @@
       root.render(
         <h1>Develop. Preview. Ship.</h1>
         );
+      const app = document.getElementById('app');
+      const root = ReactDOM.createRoot(app);
+      root.render(<HomePage />);
     </script>
     -->
 
@@ -80,7 +84,7 @@
     </script>
   -->
 
-  <!-- Passing Props-->
+  <!-- Passing Props
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script type="text/jsx">
     const app =document.getElementById('app');
@@ -93,7 +97,7 @@
     function Header({ title }) {
       return <h1>{createTitle(title)}</h1>;
     } */}
-  -->
+  
   
   
     // Define the Header component
@@ -112,18 +116,80 @@
 
     const root = ReactDOM.createRoot(app);
     root.render(<HomePage />);
+
     </script>
+  -->
+
+    <!-- Passing Props-->
     <!--
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/jsx">
-      const app =document.getElementById('app');
-      
-      
-      
-      const root = ReactDOM.createRoot(app);
-    root.render(<HomePage />);
-    </script>
+      const { useState } = React;
 
+      function createTitle(title) {
+        return title || 'Default title';
+      }
+    
+      function Header({ title }) {
+        return <h1>{createTitle(title)}</h1>;
+      }
+    
+      function HomePage() {
+        const [likeCount, setLikeCount] = useState(200);
+    
+        function handleClick() {
+          setLikeCount(likeCount + 100);
+        }
+        return (
+          <div>
+            <Header title="Welcome to the world of React" />
+            <p>Develop. Preview. Ship.</p>
+            <button onClick={handleClick}>Like ({likeCount})</button>
+          </div>
+        );
+      }
+    
+      const app = document.getElementById('app');
+      const root = ReactDOM.createRoot(app);
+      root.render(<HomePage />);  
+      
+    </script>
+-->
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/jsx">
+      const app = document.getElementById("app")
+ 
+      function Header({ title }) {
+        return <h1>{title ? title : "Default title"}</h1>
+      }
+ 
+      function HomePage() {
+        const names = ["Ada Lovelace", "Grace Hopper", "Margaret Hamilton"]
+ 
+        const [likes, setLikes] = React.useState(0)
+ 
+        function handleClick() {
+          setLikes(likes + 1)
+        }
+ 
+        return (
+          <div>
+            <Header title="Develop. Preview. Ship." />
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
+ 
+            <button onClick={handleClick}>Like ({likes})</button>
+          </div>
+        )
+      }
+ 
+      const root = ReactDOM.createRoot(app);
+      root.render(<HomePage />);
+    </script>
   
   </body>
 </html>
